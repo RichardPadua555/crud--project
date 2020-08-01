@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+	before_action :set_student , only:[:show , :edit , :update]
 
 layout 'universal_app'
 
@@ -14,13 +15,32 @@ layout 'universal_app'
 	def create
     	@student = Student.new(student_params)
     	if @student.save
-    		flash[:success] = 'Your account has Successfully been Created'
+    		flash[:notice] = 'Your account has Successfully been Created'
     		redirect_to students_path
     	else
             render 'new'
-    	end	
+    	end		
     	
 	end	
+
+	def show
+		
+	end
+
+	def edit
+		
+	end
+
+	def update
+		@student.update(student_params)
+		if @student.save
+			flash[:sucess] = 'Successfully Updated Your Profile'
+			redirect_to @student
+		else
+			render 'edit'	
+		end	
+		
+	end
 
 
 	private
@@ -29,5 +49,10 @@ layout 'universal_app'
 		params.require(:student).permit(:name ,:email)
 
 	end	
+
+	def set_student
+		@student = Student.find(params[:id])
+		
+	end
 
 end	

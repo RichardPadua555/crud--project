@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>MG University</title>
+    <meta charset="utf-8" name="viewport" content= "width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,14 +11,14 @@
   </head>
 
   <body>
-        <%= render 'layouts/header' %>
-        <%= render 'layouts/messages' %>
+        <%= render 'layouts/universal_app/header' %>
+
        <main>   
           <div class="container">
             <%= yield %>
           </div>
        </main>
       
-        <%= render 'layouts/footer' %>
+        <%= render 'layouts/universal_app/footer' %>
   </body>
 </html>
