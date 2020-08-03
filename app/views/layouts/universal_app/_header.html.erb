@@ -1,16 +1,22 @@
       <header>
           <ul id="dropdown1" class="dropdown-content">
-          <li><a href="#!">one</a></li>
-          <li><a href="#!">two</a></li>
+          <% if (logged_in?)  %> 
+          <li><%= link_to 'Logout' , logout_path , method: :delete %></li>
+          <% else %>
+          <li><%= link_to 'Log In' , login_path %></li>
           <li class="divider"></li>
-          <li><a href="#!">three</a></li>
+          <li><%= link_to 'Sign Up' , new_student_path %></li>
+          <% end %>
           </ul>
 
           <ul id="dropdown2" class="dropdown-content">
-          <li><a href="#!">one</a></li>
-          <li><a href="#!">two</a></li>
+          <% if (logged_in?)  %> 
+          <li><%= link_to 'Logout' , logout_path , method: :delete %></li>
+          <% else %>
+          <li><%= link_to 'Log In' , login_path %></li>
           <li class="divider"></li>
-          <li><a href="#!">three</a></li>
+          <li><%= link_to 'Sign Up' , new_student_path %></li>
+          <% end %>
           </ul>
 
           <nav>

@@ -6,4 +6,7 @@ class Student < ApplicationRecord
 	validates :email, presence: true , uniqueness: { case_sensitive: false } ,length: { minimum: 3 , maximum: 105 } ,
 	 format: { with: VALID_EMIAL_REGEX }
 
+	has_secure_password
+	validates :password , presence: true , length: { minumum: 4 , maximum: 20 }
+
 end	
